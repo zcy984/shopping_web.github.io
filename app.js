@@ -33,7 +33,7 @@ createApp({
           {
             name: "refrigerator",
             price: 1500,
-            imgSrc: "../pictures/refrigerator.png",
+            imgSrc: "pictures/refrigerator.png",
             link: "product.html",
           },
         ],
@@ -41,7 +41,7 @@ createApp({
           {
             name: "clothes",
             price: 70,
-            imgSrc: "../pictures/clothes.png",
+            imgSrc: "pictures/clothes.png",
             link: "product.html",
           },
         ],
@@ -49,7 +49,7 @@ createApp({
           {
             name: "desk",
             price: 200,
-            imgSrc: "../pictures/desk.png",
+            imgSrc: "pictures/desk.png",
             link: "product.html",
           },
         ],
@@ -57,7 +57,7 @@ createApp({
           {
             name: "biscuit",
             price: 12,
-            imgSrc: "../pictures/biscuit.png",
+            imgSrc: "pictures/biscuit.png",
             link: "product.html",
           },
         ],
@@ -65,7 +65,7 @@ createApp({
           {
             name: "book",
             price: 50,
-            imgSrc: "../pictures/book.png",
+            imgSrc: "pictures/book.png",
             link: "product.html",
           },
         ],
