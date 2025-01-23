@@ -33,7 +33,7 @@ createApp({
           {
             name: "refrigerator",
             price: 1500,
-            imgSrc: "pictures/TV.png",
+            imgSrc: "pictures/refrigerator.png",
             link: "product.html",
           },
         ],
