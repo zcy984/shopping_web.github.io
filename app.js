@@ -21,13 +21,13 @@ createApp({
           {
             name: "TV",
             price: 2000,
-            imgSrc: "../pictures/TV.png",
+            imgSrc: "pictures/TV.png",
             link: "product.html",
           },
           {
             name: "computer",
             price: 5000,
-            imgSrc: "../pictures/computer.png",
+            imgSrc: "pictures/computer.png",
             link: "product.html",
           },
           {
