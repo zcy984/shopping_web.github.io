@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>商品详情页</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Shopping List -->
+      <div class="shopping-list">
+        <h2>Shopping Cart</h2>
+        <ul>
+          <li v-for="item in shoppingList" :key="item.name">
+            <span class="prod-name">{{ item.name }}</span>
+            <input type="number" v-model="item.quantity" min="1" />
+            <span class="price">${{ item.price }}</span>
+          </li>
+        </ul>
+        <div class="cart-total">Total: ${{ cartTotal }}</div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+      </div>
+
+      <div class="shopping-list-trigger">
+        <i class="fas fa-shopping-cart"></i> Cart (${{ cartTotal }})
+      </div>
+
+      <!-- Navigation -->
+      <nav class="breadcrumb">
+        <div class="container">
+          <a href="index.html">Home</a> >
+          <a :href="'index.html?category=' + currentCategory"
+            >{{ currentCategory }}</a
+          >
+          >
+          <span>{{ currentProduct?.name }}</span>
+        </div>
+      </nav>
+
+      <div class="container main-content">
+        <!-- Categories List -->
+        <aside class="categories">
+          <h2>Categories</h2>
+          <ul>
+            <li v-for="category in categories" :key="category">
+              <a :href="'index.html?category=' + encodeURIComponent(category)"
+                >{{ category }}</a
+              >
+            </li>
+          </ul>
+        </aside>
+
+        <!-- Product Details -->
+        <main class="product-details">
+          <div class="shopping-list-trigger">Shopping List $2</div>
+
+          <div class="product-content">
+            <div class="product-image">
+              <img :src="currentProduct?.imgSrc" :alt="currentProduct?.name" />
+            </div>
+            <div class="product-info">
+              <h1>{{ currentProduct?.name }}</h1>
+              <div class="price">${{ currentProduct?.price }}</div>
+              <button class="add-to-cart" @click="addToCart(currentProduct)">
+                Add
+              </button>
+              <div class="description">
+                <h2>Product Description</h2>
+                <p>
+                  This is a high-quality product made from premium materials.
+                  The product features excellent performance and durability,
+                  perfect for everyday use. We strictly control every production
+                  process to ensure the best product experience for you.
+                </p>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Include Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <!-- Include JavaScript -->
+    <script src="app.js"></script>
+  </body>
+</html>

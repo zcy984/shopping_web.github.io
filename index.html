@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>商城首页</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+      .product-card {
+        display: inline-block;
+        margin: 10px;
+        width: 200px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Shopping List -->
+      <div class="shopping-list">
+        <h2>Shopping List (Total: $2.0)</h2>
+        <ul>
+          <li v-for="item in shoppingList" :key="item.name">
+            <span class="prod-name">{{ item.name }}</span>
+            <input type="number" v-model="item.quantity" min="1" />
+            <span class="price">@${{ item.price }}</span>
+          </li>
+        </ul>
+        <button class="checkout-btn">Checkout</button>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="breadcrumb">
+        <div class="container">
+          <a href="index.html">Home</a> >
+          <a href="#">{{ currentCategory }}</a>
+        </div>
+      </nav>
+
+      <div class="container main-content">
+        <!-- Categories List -->
+        <aside class="categories">
+          <h2>Categories</h2>
+          <ul>
+            <li
+              v-for="category in categories"
+              :key="category"
+              @click="loadProducts(category)"
+            >
+              <a href="#">{{ category }}</a>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- Product Grid -->
+        <main class="product-grid">
+          <div class="shopping-list-trigger">Shopping List $2</div>
+
+          <div>
+            <article
+              class="product-card"
+              v-for="product in products"
+              :key="product.name"
+            >
+              <a
+                :href="'product.html?category=' + currentCategory + '&name=' + product.name"
+              >
+                <img :src="product.imgSrc" :alt="product.name" />
+                <h3>{{ product.name }}</h3>
+              </a>
+              <div class="price">$ {{ product.price }}</div>
+              <button class="add-to-cart" @click="addToCart(product)">
+                Add
+              </button>
+            </article>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Include Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <!-- Include JavaScript -->
+    <script src="app.js"></script>
+  </body>
+</html>
